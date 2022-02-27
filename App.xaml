@@ -6,6 +6,33 @@
     StartupUri="MainWindow.xaml"
     >
     <Application.Resources>
-         
+        <Style TargetType="Label">
+            <Setter Property="BorderBrush" Value="Red"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Foreground" Value="Blue"/>
+        </Style>
+        <Style
+            TargetType="Border"
+            >
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style
+            x:Key="SpecjalnaRamka"
+            TargetType="Border"
+            BasedOn="{StaticResource {x:Type Border}}"
+            >
+            <Setter Property="Background" Value="Yellow"/>
+            <Setter Property="BorderBrush" Value="Blue"/>
+        </Style>
+        <Style
+            x:Key="SpecjalniejszaRamka"
+            TargetType="Border"
+            BasedOn="{StaticResource SpecjalnaRamka}"
+            >
+            <Setter Property="BorderBrush" Value="Green"/>
+        </Style>
     </Application.Resources>
 </Application>

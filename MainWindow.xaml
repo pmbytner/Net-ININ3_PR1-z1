@@ -24,131 +24,46 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-        <ScrollViewer
-            Grid.ColumnSpan="3"
-            Grid.Row="2"
-            Grid.RowSpan="3"
-            Margin="10,0,10,0"
-            VerticalScrollBarVisibility="Auto"
-            HorizontalScrollBarVisibility="Auto"
-            >
-            <StackPanel Orientation="Horizontal">
-                <Border
-                    Background="Red"
-                    BorderThickness="1"
-                    BorderBrush="Black"
-                    MinHeight="100"
-                    MinWidth="100"
-                    />
-                <Border
-                    Background="Blue"
-                    BorderThickness="1"
-                    BorderBrush="Black"
-                    MinHeight="100"
-                    MinWidth="100"
-                    />
-                <Border
-                    Background="Red"
-                    BorderThickness="1"
-                    BorderBrush="Black"
-                    MinHeight="100"
-                    MinWidth="100"
-                    />
-                <Border
-                    Background="Blue"
-                    BorderThickness="1"
-                    BorderBrush="Black"
-                    MinHeight="100"
-                    MinWidth="100"
-                    />
-                <Border
-                    Background="Red"
-                    BorderThickness="1"
-                    BorderBrush="Black"
-                    MinHeight="100"
-                    MinWidth="100"
-                    />
-                <Border
-                    Background="Blue"
-                    BorderThickness="1"
-                    BorderBrush="Black"
-                    MinHeight="100"
-                    MinWidth="100"
-                    />
-            </StackPanel>
-        </ScrollViewer>
+        <Label>Etykieta</Label>
+        <Label Grid.Row="1">Kolejna</Label>
+        <Label Grid.Row="2">Jeszcze jedna</Label>
+        <Border Grid.Row="3"></Border>
+        <Border Grid.Row="3" Grid.Column="1"></Border>
+        <Border
+            Style="{StaticResource SpecjalnaRamka}"
+            Grid.Row="3"
+            Grid.Column="2"
+            ></Border>
+        <Border
+            Style="{StaticResource SpecjalnaRamka}"
+            Grid.Row="4"
+            ></Border>
+        <Border
+            Style="{StaticResource SpecjalniejszaRamka}"
+            Grid.Row="4"
+            Grid.Column="1"
+            ></Border>
+        
         <WrapPanel
-            Grid.ColumnSpan="3"
-            Grid.RowSpan="2"
-            Margin="10"
-            Background="#FFEAE4E4"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="3"
             >
-            <Border
-                Background="Red"
-                BorderThickness="1"
-                BorderBrush="Black"
-                MinHeight="100"
-                MinWidth="100"
-                />
-            <Border
-                Background="Yellow"
-                BorderThickness="1"
-                BorderBrush="Black"
-                MinHeight="100"
-                MinWidth="100"
-                />
-            <Border
-                Background="Green"
-                BorderThickness="1"
-                BorderBrush="Black"
-                MinHeight="100"
-                MinWidth="100"
-                />
-            <Border
-                Background="Cyan"
-                BorderThickness="1"
-                BorderBrush="Black"
-                MinHeight="100"
-                MinWidth="100"
-                />
-            <Border
-                Background="Blue"
-                BorderThickness="1"
-                BorderBrush="Black"
-                MinHeight="100"
-                MinWidth="100"
-                />
-            <Border
-                Background="Magenta"
-                BorderThickness="1"
-                BorderBrush="Black"
-                MinHeight="100"
-                MinWidth="100"
-                />
-            <Border
-                Background="Black"
-                BorderThickness="1"
-                BorderBrush="Black"
-                MinHeight="100"
-                MinWidth="100"
-                />
-            <Border
-                Background="White"
-                BorderThickness="1"
-                BorderBrush="Black"
-                MinHeight="100"
-                MinWidth="100"
-                />
-            <Border
-                Background="Gray"
-                BorderThickness="1"
-                BorderBrush="Black"
-                MinHeight="100"
-                MinWidth="100"
-                />
+            <WrapPanel.Resources>
+                <Style
+                    TargetType="Label"
+                    BasedOn="{StaticResource {x:Type Label}}"
+                    >
+                    <Setter Property="BorderBrush" Value="Green"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Foreground" Value="Blue"/>
+                </Style>
+            </WrapPanel.Resources>
+            <Label>Etykieta we wrappanelu</Label>
+            <Label>E</Label>
+            <Label>ty</Label>
+            <Label>kie</Label>
+            <Label>ty</Label>
         </WrapPanel>
-
-
     </Grid>
 </Window>
