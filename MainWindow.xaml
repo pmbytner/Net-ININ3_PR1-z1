@@ -29,36 +29,18 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.ColumnSpan="2">Dane 1-wymiarowe</Label>
-        <ListBox
+        <Label>Wprowadź imię:</Label>
+        <TextBox
+            Grid.Column="1"
+            Text="{Binding 
+                Imię,
+                UpdateSourceTrigger=PropertyChanged
+            }"
+            />
+        <TextBlock
             Grid.Row="1"
             Grid.ColumnSpan="2"
-            Grid.RowSpan="3"
-            ItemsSource="{Binding Tab}"
-            ></ListBox>
-        <Label Grid.Row="4" Grid.ColumnSpan="2">Dane 2-wymiarowe</Label>
-        <DataGrid
-            Grid.Row="5"
-            Grid.ColumnSpan="2"
-            Grid.RowSpan="4"
-            ItemsSource="{Binding Lista}"
-            AutoGenerateColumns="False"
-            >
-            <DataGrid.Columns>
-                <DataGridTextColumn
-                    Header="Imię"
-                    Binding="{Binding Imię}"
-                    />
-                <DataGridTextColumn
-                    Header="Nazwisko"
-                    Binding="{Binding Nazwisko}"
-                    />
-                <DataGridTextColumn
-                    Header="Wiek"
-                    Binding="{Binding Wiek}"
-                    />
-            </DataGrid.Columns>
-        </DataGrid>
-            
+            Text="{Binding Format}"
+            />
     </Grid>
 </Window>

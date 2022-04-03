@@ -1,31 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Net_ININ3_PR1_z1
 {
-    class Osoba
+    class Model : INotifyPropertyChanged
     {
-        static uint następneID = 0;
-        public string Imię { get; set; }
-        public string Nazwisko { get; set; }
-        public uint Wiek { get; set; }
-        public uint ID { get; }
-        public Osoba()
+        public event PropertyChangedEventHandler? PropertyChanged;
+        /*Kluczami są właściwości z seterem, wartościami właściwości z samym geterem*/
+        readonly static Dictionary<string, string[]> PowiązaneWłaściwości = new()
         {
-            ID = następneID;
-            następneID++;
+            ["Imię"] = new string[]{ "Format" }
+        };
+        void OnPropertyChanged([CallerMemberName] string własnaNazwa = null) {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(własnaNazwa));
+            foreach(string nazwaWłaściwościPowiązanej in PowiązaneWłaściwości[własnaNazwa])
+                PropertyChanged?.Invoke(
+                    this,
+                    new PropertyChangedEventArgs(nazwaWłaściwościPowiązanej)
+                    );
         }
-    }
-    class Model
-    {
-        public string[] Tab { get; set; } = { "a", "b", "c" };
-        public LinkedList<Osoba> Lista { get; set; } = new(new Osoba[]{
-            new(){Imię="Jan",Nazwisko="Kowalski",Wiek=30},
-            new(){Imię="Anna",Nazwisko="Wiśniewska",Wiek=35},
-            new(){Imię="Julia",Nazwisko="Jabłońska",Wiek=25}
-        });
+
+        string imię = "Nemo";
+        public string Imię {
+            get { return imię; }
+            set
+            {
+                imię = value;
+                OnPropertyChanged();
+                /*OnPropertyChanged("Format")*/
+            }
+        }
+        public string Format
+        {
+            get { return $"Podane imię to {Imię}."; }
+        }
     }
 }
