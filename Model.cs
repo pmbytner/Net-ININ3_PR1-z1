@@ -25,6 +25,11 @@ namespace Net_ININ3_PR1_z1
                     );
         }
 
+        internal void PrzekierowanieKliknięcia()
+        {
+            Imię = "Nemo";
+        }
+
         string imię = "Nemo";
         public string Imię {
             get { return imię; }

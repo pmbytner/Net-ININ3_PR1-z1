@@ -26,5 +26,10 @@ namespace Net_ININ3_PR1_z1
             InitializeComponent();
             DataContext = model;
         }
+
+        private void Klik(object sender, RoutedEventArgs e)
+        {
+            model.PrzekierowanieKliknięcia();
+        }
     }
 }

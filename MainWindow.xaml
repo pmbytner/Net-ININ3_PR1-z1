@@ -42,5 +42,8 @@
             Grid.ColumnSpan="2"
             Text="{Binding Format}"
             />
+        <Button
+            Grid.Row="2" Click="Klik"
+            >Ustaw "Nemo"</Button>
     </Grid>
 </Window>
