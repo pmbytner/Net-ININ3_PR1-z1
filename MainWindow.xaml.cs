@@ -27,9 +27,36 @@ namespace Net_ININ3_PR1_z1
             DataContext = model;
         }
 
-        private void Klik(object sender, RoutedEventArgs e)
+        private void Cyfra(object sender, RoutedEventArgs e)
         {
-            model.PrzekierowanieKliknięcia();
+            model.DopiszCyfrę(
+                (string)((Button)sender).Content
+                );
+        }
+
+        private void ZmianaZnaku(object sender, RoutedEventArgs e)
+        {
+            model.ZmieńZnak();
+        }
+
+        private void Przecinek(object sender, RoutedEventArgs e)
+        {
+            model.Przecinek();
+        }
+
+        private void Cofnij(object sender, RoutedEventArgs e)
+        {
+            model.UsuńZnak();
+        }
+
+        private void Zerowanie(object sender, RoutedEventArgs e)
+        {
+            model.Zeruj();
+        }
+
+        private void Resetowanie(object sender, RoutedEventArgs e)
+        {
+            model.Resetuj();
         }
     }
 }

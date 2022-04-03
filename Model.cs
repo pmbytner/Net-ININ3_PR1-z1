@@ -11,38 +11,84 @@ namespace Net_ININ3_PR1_z1
     class Model : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
-        /*Kluczami są właściwości z seterem, wartościami właściwości z samym geterem*/
-        readonly static Dictionary<string, string[]> PowiązaneWłaściwości = new()
-        {
-            ["Imię"] = new string[]{ "Format" }
-        };
         void OnPropertyChanged([CallerMemberName] string własnaNazwa = null) {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(własnaNazwa));
-            foreach(string nazwaWłaściwościPowiązanej in PowiązaneWłaściwości[własnaNazwa])
-                PropertyChanged?.Invoke(
-                    this,
-                    new PropertyChangedEventArgs(nazwaWłaściwościPowiązanej)
-                    );
         }
 
-        internal void PrzekierowanieKliknięcia()
+        internal void Resetuj()
         {
-            Imię = "Nemo";
+            Zeruj();
         }
-
-        string imię = "Nemo";
-        public string Imię {
-            get { return imię; }
-            set
+        internal void Zeruj()
+        {
+            IO = "0";
+            flagaPrzecinka = false;
+            flagaUłamka = false;
+        }
+        internal void UsuńZnak()
+        {
+            if (buforIO.Length == 1 || buforIO == "0," || buforIO == "-0,")
+                Zeruj();
+            else
             {
-                imię = value;
-                OnPropertyChanged();
-                /*OnPropertyChanged("Format")*/
+                char usuwanyZnak = buforIO[^1];
+                IO = buforIO.Substring(0, buforIO.Length - 1);
+                flagaPrzecinka = false;
+                if (buforIO[^1] == ',')
+                {
+                    flagaUłamka = false;
+                    flagaPrzecinka = true;
+                }
             }
         }
-        public string Format
+        internal void DopiszCyfrę(string cyfra)
         {
-            get { return $"Podane imię to {Imię}."; }
+            if (buforIO == "0")
+                buforIO = "";
+            else if(flagaPrzecinka)
+            {
+                flagaUłamka = true;
+                flagaPrzecinka = false;
+            }
+            IO += cyfra;
+        }
+        internal void ZmieńZnak()
+        {
+            if (buforIO == "0")
+                return;
+            if (buforIO[0] == '-')
+                IO = buforIO.Substring(1);
+            else
+                IO = "-" + buforIO;
+        }
+        internal void Przecinek()
+        {
+            if (flagaUłamka)
+                return;
+            else if(flagaPrzecinka)
+            {
+                IO = buforIO.Substring(0, buforIO.Length - 1);
+                flagaPrzecinka = false;
+            }
+            else
+            {
+                IO += ",";
+                flagaPrzecinka = true;
+            }
+        }
+
+        bool
+            flagaPrzecinka = false,
+            flagaUłamka = false
+            ;
+        string buforIO = "0";
+        public string IO {
+            get { return buforIO; }
+            set
+            {
+                buforIO = value;
+                OnPropertyChanged();
+            }
         }
     }
 }

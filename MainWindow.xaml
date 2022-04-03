@@ -16,6 +16,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -25,25 +27,134 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label>Wprowadź imię:</Label>
-        <TextBox
-            Grid.Column="1"
-            Text="{Binding 
-                Imię,
-                UpdateSourceTrigger=PropertyChanged
-            }"
-            />
         <TextBlock
-            Grid.Row="1"
-            Grid.ColumnSpan="2"
-            Text="{Binding Format}"
+            Style="{StaticResource IO}"
+            Grid.ColumnSpan="4"
+            Text="{Binding Path=IO}"
             />
+
         <Button
-            Grid.Row="2" Click="Klik"
-            >Ustaw "Nemo"</Button>
+            Grid.Row="1"
+            >%</Button>
+        <Button
+            Style="{StaticResource Ważny}"
+            Grid.Row="1"
+            Grid.Column="1" Click="Button_Click"
+            >CE</Button>
+        <Button
+            Style="{StaticResource Ważny}"
+            Grid.Row="1"
+            Grid.Column="2" Click="Button_Click"
+            >C</Button>
+        <Button
+            Style="{StaticResource Ważny}"
+            Grid.Row="1"
+            Grid.Column="3" Click="Cofnij"
+            >🠔</Button>
+        
+        <Button
+            Grid.Row="2"
+            >1/x</Button>
+        <Button
+            Grid.Row="2"
+            Grid.Column="1"
+            >x²</Button>
+        <Button
+            Grid.Row="2"
+            Grid.Column="2"
+            >√</Button>
+        <Button
+            Grid.Row="2"
+            Grid.Column="3"
+            >/</Button>
+        
+        <Button
+            Style="{StaticResource Cyfra}"
+            Grid.Row="3"
+            Click="Cyfra"
+            >7</Button>
+        <Button
+            Style="{StaticResource Cyfra}"
+            Grid.Row="3"
+            Grid.Column="1"
+            Click="Cyfra"
+            >8</Button>
+        <Button
+            Style="{StaticResource Cyfra}"
+            Grid.Row="3"
+            Grid.Column="2"
+            Click="Cyfra"
+            >9</Button>
+        <Button
+            Grid.Row="3"
+            Grid.Column="3"
+            >*</Button>
+
+        <Button
+            Style="{StaticResource Cyfra}"
+            Grid.Row="4"
+            Click="Cyfra"
+            >4</Button>
+        <Button
+            Style="{StaticResource Cyfra}"
+            Grid.Row="4"
+            Grid.Column="1"
+            Click="Cyfra"
+            >5</Button>
+        <Button
+            Style="{StaticResource Cyfra}"
+            Grid.Row="4"
+            Grid.Column="2"
+            Click="Cyfra"
+            >6</Button>
+        <Button
+            Grid.Row="4"
+            Grid.Column="3"
+            >-</Button>
+
+        <Button
+            Style="{StaticResource Cyfra}"
+            Grid.Row="5"
+            Click="Cyfra"
+            >1</Button>
+        <Button
+            Style="{StaticResource Cyfra}"
+            Grid.Row="5"
+            Grid.Column="1"
+            Click="Cyfra"
+            >2</Button>
+        <Button
+            Style="{StaticResource Cyfra}"
+            Grid.Row="5"
+            Grid.Column="2"
+            Click="Cyfra"
+            >3</Button>
+        <Button
+            Grid.Row="5"
+            Grid.Column="3"
+            >+</Button>
+
+        <Button
+            Style="{StaticResource Cyfra}"
+            Grid.Row="6" Click="ZmianaZnaku"
+            >+/-</Button>
+        <Button
+            Style="{StaticResource Cyfra}"
+            Grid.Row="6"
+            Grid.Column="1"
+            Click="Cyfra"
+            >0</Button>
+        <Button
+            Style="{StaticResource Cyfra}"
+            Grid.Row="6"
+            Grid.Column="2" Click="Przecinek"
+            >,</Button>
+        <Button
+            Style="{StaticResource Ważny}"
+            Grid.Row="6"
+            Grid.Column="3"
+            >=</Button>
     </Grid>
 </Window>
