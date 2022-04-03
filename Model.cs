@@ -6,14 +6,26 @@ using System.Threading.Tasks;
 
 namespace Net_ININ3_PR1_z1
 {
-    class JakaśKlasa
+    class Osoba
     {
-        public string JakaśWłaściwość { get; set; }
+        static uint następneID = 0;
+        public string Imię { get; set; }
+        public string Nazwisko { get; set; }
+        public uint Wiek { get; set; }
+        public uint ID { get; }
+        public Osoba()
+        {
+            ID = następneID;
+            następneID++;
+        }
     }
     class Model
     {
-        public string Imię { get; set; } = "Nemo";
-        public JakaśKlasa Coś { get; set; } = new();
         public string[] Tab { get; set; } = { "a", "b", "c" };
+        public LinkedList<Osoba> Lista { get; set; } = new(new Osoba[]{
+            new(){Imię="Jan",Nazwisko="Kowalski",Wiek=30},
+            new(){Imię="Anna",Nazwisko="Wiśniewska",Wiek=35},
+            new(){Imię="Julia",Nazwisko="Jabłońska",Wiek=25}
+        });
     }
 }
